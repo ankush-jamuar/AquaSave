@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - AquaSave</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-blue-50 font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <i class="fas fa-water text-blue-500 text-3xl mr-2"></i>
+                        <span class="text-blue-800 font-bold text-xl">AquaSave</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="dashboard.html" class="text-blue-800 hover:text-blue-600 font-medium">Dashboard</a>
+                    <a href="devices.html" class="text-blue-800 hover:text-blue-600 font-medium">Devices</a>
+                    <a href="goals.html" class="text-blue-800 hover:text-blue-600 font-medium">Goals</a>
+                    <a href="tips.html" class="text-blue-800 hover:text-blue-600 font-medium">Water Tips</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-blue-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../index.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                <a href="dashboard.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Dashboard</a>
+                <a href="devices.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Devices</a>
+                <a href="goals.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Goals</a>
+                <a href="tips.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Water Tips</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Section -->
+    <section class="pt-24 pb-12 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-blue-800 mb-2">Create Your Account</h1>
+                    <p class="text-gray-600">Join the AquaSave community and start your water conservation journey</p>
+                </div>
+                
+                <form id="registration-form" data-validate="true" data-form-type="registration">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <!-- First Name -->
+                        <div>
+                            <label for="first-name" class="block text-gray-700 font-medium mb-2">First Name</label>
+                            <input type="text" id="first-name" name="first-name" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                                   placeholder="Enter your first name">
+                        </div>
+                        
+                        <!-- Last Name -->
+                        <div>
+                            <label for="last-name" class="block text-gray-700 font-medium mb-2">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                                   placeholder="Enter your last name">
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                               placeholder="Enter your email address">
+                    </div>
+                    
+                    <!-- Password -->
+                    <div class="mb-6">
+                        <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+                        <input type="password" id="password" name="password" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                               placeholder="Create a strong password">
+                        <p class="text-xs text-gray-500 mt-1">Must be at least 8 characters with numbers, lowercase and uppercase letters</p>
+                    </div>
+                    
+                    <!-- Confirm Password -->
+                    <div class="mb-6">
+                        <label for="confirm-password" class="block text-gray-700 font-medium mb-2">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                               placeholder="Confirm your password">
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="mb-6">
+                        <label for="location" class="block text-gray-700 font-medium mb-2">Location</label>
+                        <select id="location" name="location" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input">
+                            <option value="">Select your location type</option>
+                            <option value="urban">Urban</option>
+                            <option value="suburban">Suburban</option>
+                            <option value="rural">Rural</option>
+                            <option value="coastal">Coastal</option>
+                            <option value="desert">Desert</option>
+                        </select>
+                    </div>
+                    
+                    <!-- User Type -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">User Type</label>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 hover:bg-blue-100 border-2 border-blue-100 hover:border-blue-500 rounded-lg p-4 cursor-pointer transition-all user-type-option">
+                                <input type="radio" id="user-type-homeowner" name="user-type" value="homeowner" class="hidden" checked>
+                                <label for="user-type-homeowner" class="flex flex-col items-center cursor-pointer">
+                                    <i class="fas fa-home text-blue-500 text-2xl mb-2"></i>
+                                    <span class="font-medium">Homeowner</span>
+                                </label>
+                            </div>
+                            <div class="bg-blue-50 hover:bg-blue-100 border-2 border-blue-100 hover:border-blue-500 rounded-lg p-4 cursor-pointer transition-all user-type-option">
+                                <input type="radio" id="user-type-business" name="user-type" value="business" class="hidden">
+                                <label for="user-type-business" class="flex flex-col items-center cursor-pointer">
+                                    <i class="fas fa-building text-blue-500 text-2xl mb-2"></i>
+                                    <span class="font-medium">Business</span>
+                                </label>
+                            </div>
+                            <div class="bg-blue-50 hover:bg-blue-100 border-2 border-blue-100 hover:border-blue-500 rounded-lg p-4 cursor-pointer transition-all user-type-option">
+                                <input type="radio" id="user-type-expert" name="user-type" value="expert" class="hidden">
+                                <label for="user-type-expert" class="flex flex-col items-center cursor-pointer">
+                                    <i class="fas fa-user-graduate text-blue-500 text-2xl mb-2"></i>
+                                    <span class="font-medium">Water Expert</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms and Conditions -->
+                    <div class="mb-6">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="terms" name="terms" type="checkbox" required
+                                       class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500">
+                            </div>
+                            <label for="terms" class="ml-2 text-sm text-gray-600">
+                                I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md font-medium text-lg transition w-full md:w-auto">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Already have an account? <a href="#" class="text-blue-600 hover:underline">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">AquaSave</h3>
+                    <p class="text-blue-200">Smart water conservation for a sustainable future.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-blue-200 hover:text-white">Home</a></li>
+                        <li><a href="dashboard.html" class="text-blue-200 hover:text-white">Dashboard</a></li>
+                        <li><a href="devices.html" class="text-blue-200 hover:text-white">Devices</a></li>
+                        <li><a href="goals.html" class="text-blue-200 hover:text-white">Goals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="tips.html" class="text-blue-200 hover:text-white">Water Saving Tips</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Support</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-6 text-center">
+                <p class="text-blue-200">&copy; 2025 AquaSave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/forms.js"></script>
+    <script>
+        // User type selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const userTypeOptions = document.querySelectorAll('.user-type-option');
+            
+            userTypeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    userTypeOptions.forEach(opt => {
+                        opt.classList.remove('border-blue-500');
+                        opt.classList.add('border-blue-100');
+                    });
+                    
+                    // Add active class to selected option
+                    this.classList.remove('border-blue-100');
+                    this.classList.add('border-blue-500');
+                    
+                    // Check the radio input
+                    const radioInput = this.querySelector('input[type="radio"]');
+                    if (radioInput) {
+                        radioInput.checked = true;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devices - AquaSave</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-blue-50 font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <i class="fas fa-water text-blue-500 text-3xl mr-2"></i>
+                        <span class="text-blue-800 font-bold text-xl">AquaSave</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="dashboard.html" class="text-blue-800 hover:text-blue-600 font-medium">Dashboard</a>
+                    <a href="devices.html" class="text-blue-800 hover:text-blue-600 font-medium border-b-2 border-blue-500">Devices</a>
+                    <a href="goals.html" class="text-blue-800 hover:text-blue-600 font-medium">Goals</a>
+                    <a href="tips.html" class="text-blue-800 hover:text-blue-600 font-medium">Water Tips</a>
+                </div>
+                <div class="flex items-center">
+                    <div class="hidden md:block">
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2" alt="Profile" class="h-8 w-8 rounded-full object-cover">
+                            <span class="ml-2 text-gray-700 font-medium">Ankush Jamuar</span>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="menu-toggle" class="text-blue-800 focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../index.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                <a href="dashboard.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Dashboard</a>
+                <a href="devices.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium border-l-4 border-blue-500 pl-2">Devices</a>
+                <a href="goals.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Goals</a>
+                <a href="tips.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Water Tips</a>
+                <div class="mt-4 flex items-center">
+                    <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2" alt="Profile" class="h-8 w-8 rounded-full object-cover">
+                    <span class="ml-2 text-gray-700 font-medium">Ankush Jamuar</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Devices Section -->
+    <section class="pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-2">Your Connected Devices</h1>
+                    <p class="text-gray-600">Connect and manage your water-consuming devices for optimized tracking</p>
+                </div>
+                <button id="add-device-btn" class="mt-4 md:mt-0 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md flex items-center font-medium transition">
+                    <i class="fas fa-plus mr-2"></i>
+                    Add New Device
+                </button>
+            </div>
+            
+            <!-- Devices Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Total Devices -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-600 font-medium">Total Devices</h3>
+                        <i class="fas fa-microchip text-blue-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-blue-800 mb-1">4</p>
+                    <div class="flex items-center text-sm">
+                        <span class="text-blue-500 flex items-center">
+                            <i class="fas fa-check-circle mr-1"></i>All connected
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Water Consumption -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-600 font-medium">Total Consumption</h3>
+                        <i class="fas fa-tint text-blue-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-blue-800 mb-1">85 <span class="text-lg font-normal">gal/day</span></p>
+                    <div class="flex items-center text-sm">
+                        <div class="water-progress w-full">
+                            <div class="water-progress-bar" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Efficiency Score -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-600 font-medium">Efficiency Score</h3>
+                        <i class="fas fa-chart-line text-green-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-green-600 mb-1">92%</p>
+                    <div class="flex items-center text-sm">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i>3%
+                        </span>
+                        <span class="text-gray-500 ml-2">from last assessment</span>
+                    </div>
+                </div>
+                
+                <!-- Maintenance -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-600 font-medium">Maintenance</h3>
+                        <i class="fas fa-tools text-blue-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-blue-800 mb-1">10/16</p>
+                    <div class="flex items-center text-sm">
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">
+                            <i class="fas fa-exclamation-circle mr-1"></i>Next: Kitchen in 3 days
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Connected Devices List -->
+            <div class="bg-white rounded-lg shadow-md p-5 mb-8">
+                <h2 class="text-xl font-semibold text-blue-800 mb-6">Connected Devices</h2>
+                
+                <div class="connected-devices-list space-y-4">
+                    <!-- Device 1 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <div class="flex items-center mb-4 md:mb-0 md:w-1/4">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-shower text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Master Bathroom</h4>
+                                    <p class="text-sm text-gray-600">Smart Shower Monitor</p>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <div class="text-sm text-gray-500 mb-1">Daily Average</div>
+                                <div class="text-lg font-semibold text-gray-700">25 gallons</div>
+                            </div>
+                            
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <div class="text-sm text-gray-500 mb-1">Status</div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                                        <i class="fas fa-circle text-xs mr-1"></i>Connected
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 flex justify-end">
+                                <button class="text-blue-500 hover:text-blue-700 mr-4">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <button class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-chart-bar"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Device 2 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <div class="flex items-center mb-4 md:mb-0 md:w-1/4">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-sink text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Kitchen</h4>
+                                    <p class="text-sm text-gray-600">Faucet Flow Meter</p>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <div class="text-sm text-gray-500 mb-1">Daily Average</div>
+                                <div class="text-lg font-semibold text-gray-700">18 gallons</div>
+                            </div>
+                            
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <div class="text-sm text-gray-500 mb-1">Status</div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                                        <i class="fas fa-circle text-xs mr-1"></i>Connected
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 flex justify-end">
+                                <button class="text-blue-500 hover:text-blue-700 mr-4">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <button class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-chart-bar"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Device 3 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <div class="flex items-center mb-4 md:mb-0 md:w-1/4">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-tshirt text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Laundry Room</h4>
+                                    <p class="text-sm text-gray-600">Washing Machine Monitor</p>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <div class="text-sm text-gray-500 mb-1">Daily Average</div>
+                                <div class="text-lg font-semibold text-gray-700">32 gallons</div>
+                            </div>
+                            
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <div class="text-sm text-gray-500 mb-1">Status</div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                                        <i class="fas fa-circle text-xs mr-1"></i>Connected
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 flex justify-end">
+                                <button class="text-blue-500 hover:text-blue-700 mr-4">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <button class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-chart-bar"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Device 4 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center">
+                            <div class="flex items-center mb-4 md:mb-0 md:w-1/4">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-faucet text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Garden</h4>
+                                    <p class="text-sm text-gray-600">Irrigation Controller</p>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <div class="text-sm text-gray-500 mb-1">Daily Average</div>
+                                <div class="text-lg font-semibold text-gray-700">10 gallons</div>
+                            </div>
+                            
+                            <div class="md:w-1/4 mb-4 md:mb-0">
+                                <div class="text-sm text-gray-500 mb-1">Status</div>
+                                <div class="flex items-center">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                                        <i class="fas fa-circle text-xs mr-1"></i>Connected
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/4 flex justify-end">
+                                <button class="text-blue-500 hover:text-blue-700 mr-4">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <button class="text-blue-500 hover:text-blue-700">
+                                    <i class="fas fa-chart-bar"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Compatible Devices Section -->
+            <div class="bg-white rounded-lg shadow-md p-5">
+                <h2 class="text-xl font-semibold text-blue-800 mb-6">Compatible Device Types</h2>
+                <p class="text-gray-600 mb-6">AquaSave works with the following water devices to track and optimize your water usage</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Device Type 1 -->
+                    <div class="border border-gray-200 p-4 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-shower text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Smart Shower Systems</h4>
+                                <p class="text-sm text-gray-600">Monitors water flow, temperature, and usage time.</p>
+                                <p class="text-xs text-gray-500 mt-2">Compatible brands: Hydro, AquaFlow, EcoShower</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Device Type 2 -->
+                    <div class="border border-gray-200 p-4 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-sink text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Faucet Monitors</h4>
+                                <p class="text-sm text-gray-600">Tracks water flow rate and total volume used.</p>
+                                <p class="text-xs text-gray-500 mt-2">Compatible brands: WaterSense, FlowTrack, H2Optimize</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Device Type 3 -->
+                    <div class="border border-gray-200 p-4 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-tshirt text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Appliance Monitors</h4>
+                                <p class="text-sm text-gray-600">Tracks water usage of washing machines, dishwashers.</p>
+                                <p class="text-xs text-gray-500 mt-2">Compatible brands: EcoWash, WiseWater, SmartFlow</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Device Type 4 -->
+                    <div class="border border-gray-200 p-4 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-faucet text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Irrigation Controllers</h4>
+                                <p class="text-sm text-gray-600">Smart controllers for outdoor watering systems.</p>
+                                <p class="text-xs text-gray-500 mt-2">Compatible brands: RainSave, GardenFlow, AquaGarden</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Device Type 5 -->
+                    <div class="border border-gray-200 p-4 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-toilet text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Toilet Monitors</h4>
+                                <p class="text-sm text-gray-600">Detects leaks and monitors flush volume.</p>
+                                <p class="text-xs text-gray-500 mt-2">Compatible brands: FlushSense, WaterGuard, LeakStop</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Device Type 6 -->
+                    <div class="border border-gray-200 p-4 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-house-user text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Whole Home Systems</h4>
+                                <p class="text-sm text-gray-600">Comprehensive water monitoring for entire property.</p>
+                                <p class="text-xs text-gray-500 mt-2">Compatible brands: HomeFlow, WaterWatch, AquaHome</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Device Modal -->
+    <div id="add-device-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-lg max-w-md w-full mx-4">
+            <div class="p-5 border-b border-gray-200">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold text-blue-800">Add New Device</h3>
+                    <button id="close-modal" class="text-gray-400 hover:text-gray-500">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-5">
+                <form id="device-form" data-validate="true" data-form-type="device-connect">
+                    <!-- Device Name -->
+                    <div class="mb-4">
+                        <label for="device-name" class="block text-gray-700 font-medium mb-2">Device Name</label>
+                        <input type="text" id="device-name" name="device-name" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                               placeholder="e.g. Bathroom Shower">
+                    </div>
+                    
+                    <!-- Device Type -->
+                    <div class="mb-4">
+                        <label for="device-type" class="block text-gray-700 font-medium mb-2">Device Type</label>
+                        <select id="device-type" name="device-type" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input">
+                            <option value="">Select device type</option>
+                            <option value="shower">Smart Shower</option>
+                            <option value="faucet">Faucet Monitor</option>
+                            <option value="toilet">Toilet Monitor</option>
+                            <option value="irrigation">Irrigation Controller</option>
+                            <option value="appliance">Appliance Monitor</option>
+                            <option value="wholehome">Whole Home System</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="mb-4">
+                        <label for="device-location" class="block text-gray-700 font-medium mb-2">Location</label>
+                        <select id="device-location" name="device-location" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input">
+                            <option value="">Select location</option>
+                            <option value="bathroom">Bathroom</option>
+                            <option value="kitchen">Kitchen</option>
+                            <option value="laundry">Laundry Room</option>
+                            <option value="garden">Garden/Outdoor</option>
+                            <option value="main">Main Water Line</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Brand/Model -->
+                    <div class="mb-4">
+                        <label for="device-brand" class="block text-gray-700 font-medium mb-2">Brand/Model</label>
+                        <input type="text" id="device-brand" name="device-brand"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                               placeholder="e.g. AquaFlow X3000">
+                    </div>
+                    
+                    <!-- Connection Type -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Connection Type</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border border-gray-200 hover:border-blue-500 rounded-lg p-3 cursor-pointer transition-all connection-type-option">
+                                <input type="radio" id="connection-wifi" name="connection-type" value="wifi" class="hidden" checked>
+                                <label for="connection-wifi" class="flex flex-col items-center cursor-pointer">
+                                    <i class="fas fa-wifi text-blue-500 text-xl mb-2"></i>
+                                    <span class="font-medium text-sm text-center">Wi-Fi</span>
+                                </label>
+                            </div>
+                            <div class="border border-gray-200 hover:border-blue-500 rounded-lg p-3 cursor-pointer transition-all connection-type-option">
+                                <input type="radio" id="connection-bluetooth" name="connection-type" value="bluetooth" class="hidden">
+                                <label for="connection-bluetooth" class="flex flex-col items-center cursor-pointer">
+                                    <i class="fab fa-bluetooth-b text-blue-500 text-xl mb-2"></i>
+                                    <span class="font-medium text-sm text-center">Bluetooth</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="flex justify-end">
+                        <button type="button" id="cancel-add-device" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md font-medium mr-2 transition">
+                            Cancel
+                        </button>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium transition">
+                            Connect Device
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">AquaSave</h3>
+                    <p class="text-blue-200">Smart water conservation for a sustainable future.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-blue-200 hover:text-white">Home</a></li>
+                        <li><a href="dashboard.html" class="text-blue-200 hover:text-white">Dashboard</a></li>
+                        <li><a href="devices.html" class="text-blue-200 hover:text-white">Devices</a></li>
+                        <li><a href="goals.html" class="text-blue-200 hover:text-white">Goals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="tips.html" class="text-blue-200 hover:text-white">Water Saving Tips</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Support</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-6 text-center">
+                <p class="text-blue-200">&copy; 2025 AquaSave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Device modal functionality
+            const addDeviceBtn = document.getElementById('add-device-btn');
+            const addDeviceModal = document.getElementById('add-device-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+            const cancelAddDeviceBtn = document.getElementById('cancel-add-device');
+            
+            // Show modal
+            if (addDeviceBtn && addDeviceModal) {
+                addDeviceBtn.addEventListener('click', function() {
+                    addDeviceModal.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                });
+            }
+            
+            // Hide modal
+            const hideModal = function() {
+                if (addDeviceModal) {
+                    addDeviceModal.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            };
+            
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', hideModal);
+            }
+            
+            if (cancelAddDeviceBtn) {
+                cancelAddDeviceBtn.addEventListener('click', hideModal);
+            }
+            
+            // Close modal when clicking outside
+            if (addDeviceModal) {
+                addDeviceModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        hideModal();
+                    }
+                });
+            }
+            
+            // Connection type selection
+            const connectionTypeOptions = document.querySelectorAll('.connection-type-option');
+            
+            connectionTypeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    connectionTypeOptions.forEach(opt => {
+                        opt.classList.remove('border-blue-500');
+                        opt.classList.add('border-gray-200');
+                    });
+                    
+                    // Add active class to selected option
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('border-blue-500');
+                    
+                    // Check the radio input
+                    const radioInput = this.querySelector('input[type="radio"]');
+                    if (radioInput) {
+                        radioInput.checked = true;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

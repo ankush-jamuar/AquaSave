@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AquaSave</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-blue-50 font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <i class="fas fa-water text-blue-500 text-3xl mr-2"></i>
+                        <span class="text-blue-800 font-bold text-xl">AquaSave</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="dashboard.html" class="text-blue-800 hover:text-blue-600 font-medium border-b-2 border-blue-500">Dashboard</a>
+                    <a href="devices.html" class="text-blue-800 hover:text-blue-600 font-medium">Devices</a>
+                    <a href="goals.html" class="text-blue-800 hover:text-blue-600 font-medium">Goals</a>
+                    <a href="tips.html" class="text-blue-800 hover:text-blue-600 font-medium">Water Tips</a>
+                </div>
+                <div class="flex items-center">
+                    <div class="hidden md:block">
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2" alt="Profile" class="h-8 w-8 rounded-full object-cover">
+                            <span class="ml-2 text-gray-700 font-medium">Ankush Jamuar</span>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="menu-toggle" class="text-blue-800 focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../index.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                <a href="dashboard.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium border-l-4 border-blue-500 pl-2">Dashboard</a>
+                <a href="devices.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Devices</a>
+                <a href="goals.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Goals</a>
+                <a href="tips.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Water Tips</a>
+                <div class="mt-4 flex items-center">
+                    <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2" alt="Profile" class="h-8 w-8 rounded-full object-cover">
+                    <span class="ml-2 text-gray-700 font-medium">Ankush Jamuar</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Section -->
+    <section class="pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-6">Water Usage Dashboard</h1>
+            
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Current Usage -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-600 font-medium">Current Usage</h3>
+                        <i class="fas fa-tint text-blue-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-blue-800 mb-1">85 <span class="text-lg font-normal">gal/day</span></p>
+                    <div class="flex items-center text-sm">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fas fa-arrow-down mr-1"></i>12%
+                        </span>
+                        <span class="text-gray-500 ml-2">from last month</span>
+                    </div>
+                </div>
+                
+                <!-- Conservation Goal -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-600 font-medium">Conservation Goal</h3>
+                        <i class="fas fa-bullseye text-green-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-green-600 mb-1">80 <span class="text-lg font-normal">gal/day</span></p>
+                    <div class="water-progress">
+                        <div class="water-progress-bar" style="width: 94%;"></div>
+                    </div>
+                    <div class="flex justify-between mt-1 text-xs text-gray-500">
+                        <span>94% Complete</span>
+                        <span>5 gal remaining</span>
+                    </div>
+                </div>
+                
+                <!-- Cost Savings -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-600 font-medium">Cost Savings</h3>
+                        <i class="fas fa-dollar-sign text-blue-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-blue-800 mb-1">$32.50 <span class="text-lg font-normal">this month</span></p>
+                    <div class="flex items-center text-sm">
+                        <span class="text-green-500 flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i>8%
+                        </span>
+                        <span class="text-gray-500 ml-2">from last month</span>
+                    </div>
+                </div>
+                
+                <!-- Water Footprint -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-gray-600 font-medium">Water Footprint</h3>
+                        <i class="fas fa-leaf text-green-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-green-600 mb-1">Good</p>
+                    <div class="flex items-center justify-between text-sm mt-1">
+                        <div class="bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                            Better than 65% of users
+                        </div>
+                        <a href="goals.html" class="text-blue-500 hover:underline">Improve</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chart Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Main Usage Chart -->
+                <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-semibold text-gray-700">Monthly Water Usage</h3>
+                        <div class="flex space-x-2">
+                            <button class="bg-blue-100 text-blue-600 px-3 py-1 rounded-md text-sm font-medium">6 Months</button>
+                            <button class="text-gray-600 hover:bg-blue-50 px-3 py-1 rounded-md text-sm font-medium">1 Year</button>
+                        </div>
+                    </div>
+                    <div class="h-72">
+                        <canvas id="water-usage-chart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Water Source Breakdown -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-6">Usage by Source</h3>
+                    <div class="h-64">
+                        <canvas id="water-sources-chart"></canvas>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                                <span class="text-sm text-gray-600">Kitchen (30%)</span>
+                            </div>
+                            <span class="text-sm font-medium">25.5 gal/day</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-blue-400 mr-2"></div>
+                                <span class="text-sm text-gray-600">Bathroom (40%)</span>
+                            </div>
+                            <span class="text-sm font-medium">34 gal/day</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-blue-300 mr-2"></div>
+                                <span class="text-sm text-gray-600">Laundry (15%)</span>
+                            </div>
+                            <span class="text-sm font-medium">12.75 gal/day</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Charts and Info -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Conservation Progress -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-semibold text-gray-700">Conservation Progress</h3>
+                        <a href="goals.html" class="text-blue-500 hover:underline text-sm">Adjust Goal</a>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="conservation-progress-chart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Daily Consumption -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-semibold text-gray-700">Daily Consumption</h3>
+                        <div class="text-sm text-blue-500">This Week</div>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="daily-consumption-chart"></canvas>
+                    </div>
+                    <div class="mt-4 bg-red-50 p-3 rounded-md border border-red-100">
+                        <div class="flex items-start">
+                            <i class="fas fa-exclamation-circle text-red-500 mt-0.5 mr-2"></i>
+                            <div>
+                                <p class="text-red-700 font-medium">Usage Spike Detected</p>
+                                <p class="text-sm text-red-600">Saturday's water usage was 37% higher than your average. <a href="tips.html" class="text-blue-500 hover:underline">See recommendations</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity and Alerts -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Recent Activity -->
+                <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Recent Activity</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="font-medium text-gray-800">New Low-Flow Shower Installed</h4>
+                            <p class="text-sm text-gray-600 mb-1">You added a new device to monitor your bathroom usage.</p>
+                            <span class="text-xs text-gray-500">Today, 9:45 AM</span>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-medium text-gray-800">Conservation Goal Updated</h4>
+                            <p class="text-sm text-gray-600 mb-1">You've reduced your daily target from 90 to 80 gallons.</p>
+                            <span class="text-xs text-gray-500">Yesterday, 2:30 PM</span>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-medium text-gray-800">Leak Detected and Fixed</h4>
+                            <p class="text-sm text-gray-600 mb-1">A leak in your kitchen sink was identified and repaired.</p>
+                            <span class="text-xs text-gray-500">Sep 15, 10:20 AM</span>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-medium text-gray-800">Water-Saving Achievement</h4>
+                            <p class="text-sm text-gray-600 mb-1">You've saved 1,000 gallons this month! Keep it up!</p>
+                            <span class="text-xs text-gray-500">Sep 10, 8:15 AM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alerts and Recommendations -->
+                <div class="bg-white rounded-lg shadow-md p-5 dashboard-card">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Alerts & Recommendations</h3>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-yellow-50 rounded-md border border-yellow-100">
+                            <div class="flex">
+                                <i class="fas fa-exclamation-circle text-yellow-500 mt-0.5 mr-2"></i>
+                                <div>
+                                    <p class="text-yellow-700 font-medium">Unusual Bathroom Usage</p>
+                                    <p class="text-sm text-yellow-600">Water usage in your bathroom is 20% higher than normal.</p>
+                                    <a href="#" class="text-blue-500 hover:underline text-sm">Investigate</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-green-50 rounded-md border border-green-100">
+                            <div class="flex">
+                                <i class="fas fa-lightbulb text-green-500 mt-0.5 mr-2"></i>
+                                <div>
+                                    <p class="text-green-700 font-medium">Water-Saving Opportunity</p>
+                                    <p class="text-sm text-green-600">Upgrading your washing machine could save 10,000 gallons per year.</p>
+                                    <a href="#" class="text-blue-500 hover:underline text-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-blue-50 rounded-md border border-blue-100">
+                            <div class="flex">
+                                <i class="fas fa-calendar-check text-blue-500 mt-0.5 mr-2"></i>
+                                <div>
+                                    <p class="text-blue-700 font-medium">Scheduled Maintenance</p>
+                                    <p class="text-sm text-blue-600">Regular check of your kitchen devices is due in 3 days.</p>
+                                    <a href="#" class="text-blue-500 hover:underline text-sm">Reschedule</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="tips.html" class="text-blue-500 hover:underline text-sm">View All Recommendations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">AquaSave</h3>
+                    <p class="text-blue-200">Smart water conservation for a sustainable future.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-blue-200 hover:text-white">Home</a></li>
+                        <li><a href="dashboard.html" class="text-blue-200 hover:text-white">Dashboard</a></li>
+                        <li><a href="devices.html" class="text-blue-200 hover:text-white">Devices</a></li>
+                        <li><a href="goals.html" class="text-blue-200 hover:text-white">Goals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="tips.html" class="text-blue-200 hover:text-white">Water Saving Tips</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Support</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-6 text-center">
+                <p class="text-blue-200">&copy; 2025 AquaSave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/charts.js"></script>
+</body>
+</html>

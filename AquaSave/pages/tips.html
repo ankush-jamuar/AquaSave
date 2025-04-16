@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Saving Tips - AquaSave</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-blue-50 font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <i class="fas fa-water text-blue-500 text-3xl mr-2"></i>
+                        <span class="text-blue-800 font-bold text-xl">AquaSave</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="dashboard.html" class="text-blue-800 hover:text-blue-600 font-medium">Dashboard</a>
+                    <a href="devices.html" class="text-blue-800 hover:text-blue-600 font-medium">Devices</a>
+                    <a href="goals.html" class="text-blue-800 hover:text-blue-600 font-medium">Goals</a>
+                    <a href="tips.html" class="text-blue-800 hover:text-blue-600 font-medium border-b-2 border-blue-500">Water Tips</a>
+                </div>
+                <div class="flex items-center">
+                    <div class="hidden md:block">
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2" alt="Profile" class="h-8 w-8 rounded-full object-cover">
+                            <span class="ml-2 text-gray-700 font-medium">Ankush Jamuar</span>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="menu-toggle" class="text-blue-800 focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../index.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                <a href="dashboard.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Dashboard</a>
+                <a href="devices.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Devices</a>
+                <a href="goals.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Goals</a>
+                <a href="tips.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium border-l-4 border-blue-500 pl-2">Water Tips</a>
+                <div class="mt-4 flex items-center">
+                    <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2" alt="Profile" class="h-8 w-8 rounded-full object-cover">
+                    <span class="ml-2 text-gray-700 font-medium">Ankush Jamuar</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Tips Section -->
+    <section class="pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-2">Water Saving Tips</h1>
+                    <p class="text-gray-600">Personalized recommendations to help you conserve water efficiently</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <label for="location-select" class="sr-only">Select Location</label>
+                    <div class="relative">
+                        <select id="location-select" class="bg-white border border-gray-300 text-gray-700 py-2 pl-3 pr-10 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="urban">Urban Home</option>
+                            <option value="coastal">Coastal Area</option>
+                            <option value="desert">Desert Region</option>
+                            <option value="rural">Rural Property</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Personalized Recommendations -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-lightbulb text-yellow-500 text-xl mr-3"></i>
+                    <h2 class="text-xl font-semibold text-blue-800">Personalized for Your Home</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Based on your usage patterns and devices, these tips can help you save water and money:</p>
+                
+                <div class="water-tips-container space-y-4">
+                    <!-- Tip 1 -->
+                    <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-shower text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-2">Reduce Shower Time</h4>
+                                <p class="text-gray-600">Cutting your shower time by just 2 minutes can save up to 1,750 gallons of water per person annually. Try setting a timer or playing a 5-minute song as a guide.</p>
+                                <div class="mt-3 flex items-center text-sm">
+                                    <span class="text-blue-500">Potential Savings:</span>
+                                    <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">1,750 gallons/year per person</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 2 -->
+                    <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-tshirt text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-2">Full Loads Only</h4>
+                                <p class="text-gray-600">Your laundry usage is 20% higher than average. Only run your washing machine with full loads to maximize efficiency. This can save up to 15-45 gallons per load.</p>
+                                <div class="mt-3 flex items-center text-sm">
+                                    <span class="text-blue-500">Potential Savings:</span>
+                                    <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">15-45 gallons per load</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 3 -->
+                    <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-faucet text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-2">Fix That Leak</h4>
+                                <p class="text-gray-600">Our system detected a potential small leak in your kitchen faucet. A faucet that drips once per second can waste more than 3,000 gallons per year.</p>
+                                <div class="mt-3 flex items-center text-sm">
+                                    <span class="text-blue-500">Potential Savings:</span>
+                                    <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">3,000+ gallons/year</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tips By Category -->
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-blue-800 mb-6">Tips by Category</h2>
+                
+                <!-- Category Tabs -->
+                <div class="mb-6 border-b border-gray-200">
+                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="category-tabs" role="tablist">
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 border-blue-500 rounded-t-lg active" id="indoor-tab" data-tab="indoor" type="button" role="tab" aria-selected="true">
+                                <i class="fas fa-home mr-2"></i>Indoor
+                            </button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="outdoor-tab" data-tab="outdoor" type="button" role="tab" aria-selected="false">
+                                <i class="fas fa-tree mr-2"></i>Outdoor
+                            </button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="devices-tab" data-tab="devices" type="button" role="tab" aria-selected="false">
+                                <i class="fas fa-cogs mr-2"></i>Devices & Appliances
+                            </button>
+                        </li>
+                        <li role="presentation">
+                            <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" id="habits-tab" data-tab="habits" type="button" role="tab" aria-selected="false">
+                                <i class="fas fa-clock mr-2"></i>Daily Habits
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Tab Content -->
+                <div id="tab-content">
+                    <!-- Indoor Tips -->
+                    <div class="tab-pane active" id="indoor-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Indoor Tip 1 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-toilet text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Check for Toilet Leaks</h4>
+                                        <p class="text-gray-600">Add a few drops of food coloring to your toilet tank. If the color appears in the bowl without flushing, you have a leak that's wasting up to 200 gallons per day.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">Up to 200 gallons/day</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Indoor Tip 2 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-sink text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Turn Off While Brushing</h4>
+                                        <p class="text-gray-600">Turn off the water while brushing your teeth or shaving. This simple habit can save more than 200 gallons per month for a family of four.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">200+ gallons/month</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Indoor Tip 3 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-glass-whiskey text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Refrigerate Drinking Water</h4>
+                                        <p class="text-gray-600">Instead of running tap water until it's cold, keep a pitcher of water in the refrigerator. This eliminates the waste of running water that occurs while waiting for it to cool.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">Up to 1 gallon per drink</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Indoor Tip 4 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-utensils text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Efficient Dishwashing</h4>
+                                        <p class="text-gray-600">When washing dishes by hand, don't let the water run. Fill one basin with wash water and the other with rinse water. This can save up to 10 gallons per washing session.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">10 gallons per washing session</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Outdoor Tips -->
+                    <div class="tab-pane hidden" id="outdoor-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Outdoor Tip 1 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-seedling text-green-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Choose Water-Wise Plants</h4>
+                                        <p class="text-gray-600">Select native plants that are adapted to your local climate. These typically require less water and maintenance than non-native varieties.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">Up to 550 gallons/week</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Outdoor Tip 2 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-cloud-sun text-green-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Water in the Morning</h4>
+                                        <p class="text-gray-600">Water your garden in the early morning when temperatures are cooler to minimize evaporation. Avoid watering during windy weather.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">25-50% of outdoor water</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Outdoor Tip 3 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-layer-group text-green-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Apply Mulch</h4>
+                                        <p class="text-gray-600">Add a layer of mulch around plants to reduce evaporation, inhibit weed growth, and improve soil health. Use organic materials like wood chips or compost.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">20-30% of garden water</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Outdoor Tip 4 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-tint text-green-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Install a Rain Barrel</h4>
+                                        <p class="text-gray-600">Collect rainwater from your roof in a rain barrel for watering your garden. A 55-gallon drum can fill up during just a quarter-inch rainfall on an average-sized roof.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">1,300 gallons during rainy season</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Devices & Appliances Tips -->
+                    <div class="tab-pane hidden" id="devices-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Devices Tip 1 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-shower text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Install Low-Flow Showerheads</h4>
+                                        <p class="text-gray-600">Replace standard showerheads with WaterSense labeled models, which use less than 2 gallons per minute while maintaining good water pressure.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">2,700 gallons/year per showerhead</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Devices Tip 2 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-toilet text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Upgrade to High-Efficiency Toilets</h4>
+                                        <p class="text-gray-600">Replace older toilets with WaterSense labeled high-efficiency models that use 1.28 gallons per flush or less, saving thousands of gallons annually.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">Up to 13,000 gallons/year</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Devices Tip 3 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-washer text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Energy Star Appliances</h4>
+                                        <p class="text-gray-600">When replacing washing machines or dishwashers, choose ENERGY STAR certified models, which typically use 33% less water than standard models.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">3,000 gallons/year</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Devices Tip 4 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-faucet text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Faucet Aerators</h4>
+                                        <p class="text-gray-600">Install aerators on kitchen and bathroom faucets. These inexpensive devices mix air with water to maintain pressure while reducing flow to 1.5 gallons per minute or less.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">700 gallons/year per faucet</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Daily Habits Tips -->
+                    <div class="tab-pane hidden" id="habits-content">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Habits Tip 1 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-stopwatch text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Shorter Showers</h4>
+                                        <p class="text-gray-600">Try to keep showers under 5 minutes. Use a shower timer or play a 5-minute song to help you track time and make it fun.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">12.5 gallons per shower</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Habits Tip 2 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-broom text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Sweep, Don't Spray</h4>
+                                        <p class="text-gray-600">Use a broom instead of a hose to clean driveways, sidewalks, and patios. A hose can waste 100 gallons in just minutes.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">100 gallons per cleaning</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Habits Tip 3 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-car text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Car Washing</h4>
+                                        <p class="text-gray-600">Use a commercial car wash that recycles water instead of washing your car at home. If you do wash at home, use a bucket and sponge with a hose nozzle that can be turned off.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">Up to 100 gallons per wash</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Habits Tip 4 -->
+                            <div class="bg-white rounded-lg shadow-md p-5 water-card">
+                                <div class="flex items-start">
+                                    <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                        <i class="fas fa-thermometer-half text-yellow-500"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-2">Capture Cold Water</h4>
+                                        <p class="text-gray-600">While waiting for hot water to reach the faucet or shower, collect the cold water in a bucket and use it for plants or cleaning.</p>
+                                        <div class="mt-3 flex items-center text-sm">
+                                            <span class="text-blue-500">Potential Savings:</span>
+                                            <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">2-3 gallons per day</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Water Conservation Facts -->
+            <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg shadow-md p-6 text-white">
+                <h2 class="text-xl font-semibold mb-6">Water Conservation Facts</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-5">
+                        <div class="text-center">
+                            <i class="fas fa-tint text-4xl mb-4"></i>
+                            <h3 class="font-medium text-lg mb-2">The Average Home</h3>
+                            <p>The average American home uses about 88 gallons of water per day per person, with up to 50% used outdoors.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 rounded-lg p-5">
+                        <div class="text-center">
+                            <i class="fas fa-hand-holding-water text-4xl mb-4"></i>
+                            <h3 class="font-medium text-lg mb-2">Small Changes Matter</h3>
+                            <p>If all U.S. households installed water-efficient fixtures, water use would decrease by 30%, saving 5.4 billion gallons per day.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-20 rounded-lg p-5">
+                        <div class="text-center">
+                            <i class="fas fa-globe-americas text-4xl mb-4"></i>
+                            <h3 class="font-medium text-lg mb-2">Global Impact</h3>
+                            <p>By 2025, two-thirds of the world's population may face water shortages. Conservation is increasingly critical.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">AquaSave</h3>
+                    <p class="text-blue-200">Smart water conservation for a sustainable future.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-blue-200 hover:text-white">Home</a></li>
+                        <li><a href="dashboard.html" class="text-blue-200 hover:text-white">Dashboard</a></li>
+                        <li><a href="devices.html" class="text-blue-200 hover:text-white">Devices</a></li>
+                        <li><a href="goals.html" class="text-blue-200 hover:text-white">Goals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="tips.html" class="text-blue-200 hover:text-white">Water Saving Tips</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Support</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-6 text-center">
+                <p class="text-blue-200">&copy; 2025 AquaSave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('#category-tabs button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Get the tab ID
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Hide all tab panes
+                    tabPanes.forEach(pane => {
+                        pane.classList.add('hidden');
+                        pane.classList.remove('active');
+                    });
+                    
+                    // Show the selected tab pane
+                    document.getElementById(`${tabId}-content`).classList.remove('hidden');
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                    
+                    // Update active state on buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('border-blue-500');
+                        btn.classList.add('border-transparent');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    
+                    // Set active button
+                    this.classList.remove('border-transparent');
+                    this.classList.add('border-blue-500');
+                    this.setAttribute('aria-selected', 'true');
+                });
+            });
+            
+            // Location selector functionality
+            const locationSelect = document.getElementById('location-select');
+            if (locationSelect) {
+                // Initial load of location-specific tips
+                updateWaterTips(locationSelect.value);
+                
+                // Update when location changes
+                locationSelect.addEventListener('change', function() {
+                    updateWaterTips(this.value);
+                });
+            }
+            
+            // Function to update water tips based on location
+            function updateWaterTips(location) {
+                const tipsContainer = document.querySelector('.water-tips-container');
+                if (!tipsContainer) return;
+                
+                // Show loading state
+                tipsContainer.innerHTML = '<div class="text-center p-8"><i class="fas fa-spinner fa-spin text-blue-500 text-3xl"></i><p class="mt-2 text-gray-600">Loading location-specific tips...</p></div>';
+                
+                // Simulate loading tips (in a real app, this would be an API call)
+                setTimeout(() => {
+                    // Get tips based on location
+                    let tips;
+                    
+                    switch(location) {
+                        case 'desert':
+                            tips = [
+                                {
+                                    title: 'Xeriscaping Basics',
+                                    description: 'Replace water-intensive lawn areas with drought-resistant native plants, decorative rocks, and mulch to create an attractive, low-water landscape.',
+                                    icon: 'fa-seedling',
+                                    savings: '750+ gallons/month'
+                                },
+                                {
+                                    title: 'Rainwater Harvesting',
+                                    description: 'Even in arid regions, capture the occasional rainfall with barrels or cisterns. Every drop counts in desert environments.',
+                                    icon: 'fa-cloud-rain',
+                                    savings: '100-300 gallons per rainfall'
+                                },
+                                {
+                                    title: 'Drip Irrigation',
+                                    description: 'For desert gardens, install drip irrigation systems that deliver water directly to plant roots, minimizing evaporation.',
+                                    icon: 'fa-faucet-drip',
+                                    savings: '30-50% compared to sprinklers'
+                                }
+                            ];
+                            break;
+                            
+                        case 'coastal':
+                            tips = [
+                                {
+                                    title: 'Salt-Tolerant Landscaping',
+                                    description: 'Choose salt-tolerant plants for your garden to reduce irrigation needs and maintain a beautiful landscape in coastal areas.',
+                                    icon: 'fa-leaf',
+                                    savings: '500 gallons/month'
+                                },
+                                {
+                                    title: 'Greywater Systems',
+                                    description: 'Install systems to reuse household water from sinks, showers, and washing machines for landscape irrigation.',
+                                    icon: 'fa-recycle',
+                                    savings: '30-50% of outdoor water use'
+                                },
+                                {
+                                    title: 'Humidity Awareness',
+                                    description: 'Adjust outdoor watering based on coastal humidity. High humidity days require less supplemental irrigation.',
+                                    icon: 'fa-cloud',
+                                    savings: '100-200 gallons/week during humid periods'
+                                }
+                            ];
+                            break;
+                            
+                        case 'rural':
+                            tips = [
+                                {
+                                    title: 'Well Water Conservation',
+                                    description: 'Protect your well by monitoring usage and avoiding wasteful practices. Consider a low-water garden to reduce strain on your well system.',
+                                    icon: 'fa-water',
+                                    savings: 'Extended well life and reduced pumping costs'
+                                },
+                                {
+                                    title: 'Mulching Gardens',
+                                    description: 'Apply a thick layer of organic mulch in garden beds to retain soil moisture and reduce irrigation needs.',
+                                    icon: 'fa-layer-group',
+                                    savings: '20-30% of garden water use'
+                                },
+                                {
+                                    title: 'Rainwater Collection System',
+                                    description: 'Set up a comprehensive rain barrel system connected to gutters to collect maximum rainfall for garden use.',
+                                    icon: 'fa-cloud-rain',
+                                    savings: 'Up to 1,500 gallons during rainy season'
+                                }
+                            ];
+                            break;
+                            
+                        default: // urban
+                            tips = [
+                                {
+                                    title: 'High-Efficiency Appliances',
+                                    description: 'Replace old appliances with water-efficient models that carry ENERGY STAR or WaterSense certifications.',
+                                    icon: 'fa-washer',
+                                    savings: '16 gallons/day'
+                                },
+                                {
+                                    title: 'Smart Irrigation Controllers',
+                                    description: 'For urban gardens and balconies, install weather-based controllers that adjust watering based on local conditions.',
+                                    icon: 'fa-clock',
+                                    savings: '40 gallons/day'
+                                },
+                                {
+                                    title: 'Balcony Gardening',
+                                    description: 'For apartment dwellers, use self-watering containers and drip systems to create water-efficient urban gardens.',
+                                    icon: 'fa-seedling',
+                                    savings: '10 gallons/week compared to traditional containers'
+                                }
+                            ];
+                    }
+                    
+                    // Update container
+                    tipsContainer.innerHTML = '';
+                    
+                    tips.forEach(tip => {
+                        const tipElement = document.createElement('div');
+                        tipElement.className = 'bg-white rounded-lg shadow-md p-5 water-card';
+                        tipElement.innerHTML = `
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas ${tip.icon} text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">${tip.title}</h4>
+                                    <p class="text-gray-600">${tip.description}</p>
+                                    <div class="mt-3 flex items-center text-sm">
+                                        <span class="text-blue-500">Potential Savings:</span>
+                                        <span class="ml-2 bg-blue-50 text-blue-700 px-2 py-1 rounded">${tip.savings}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        tipsContainer.appendChild(tipElement);
+                    });
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

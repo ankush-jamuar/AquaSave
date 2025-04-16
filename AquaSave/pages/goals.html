@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservation Goals - AquaSave</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-blue-50 font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <i class="fas fa-water text-blue-500 text-3xl mr-2"></i>
+                        <span class="text-blue-800 font-bold text-xl">AquaSave</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="dashboard.html" class="text-blue-800 hover:text-blue-600 font-medium">Dashboard</a>
+                    <a href="devices.html" class="text-blue-800 hover:text-blue-600 font-medium">Devices</a>
+                    <a href="goals.html" class="text-blue-800 hover:text-blue-600 font-medium border-b-2 border-blue-500">Goals</a>
+                    <a href="tips.html" class="text-blue-800 hover:text-blue-600 font-medium">Water Tips</a>
+                </div>
+                <div class="flex items-center">
+                    <div class="hidden md:block">
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2" alt="Profile" class="h-8 w-8 rounded-full object-cover">
+                            <span class="ml-2 text-gray-700 font-medium">Ankush Jamuar</span>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="menu-toggle" class="text-blue-800 focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="../index.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                <a href="dashboard.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Dashboard</a>
+                <a href="devices.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Devices</a>
+                <a href="goals.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium border-l-4 border-blue-500 pl-2">Goals</a>
+                <a href="tips.html" class="block py-2 text-blue-800 hover:text-blue-600 font-medium">Water Tips</a>
+                <div class="mt-4 flex items-center">
+                    <img src="https://images.unsplash.com/photo-1495774539583-885e02cca8c2" alt="Profile" class="h-8 w-8 rounded-full object-cover">
+                    <span class="ml-2 text-gray-700 font-medium">Ankush Jamuar</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Goals Section -->
+    <section class="pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800 mb-2">Water Conservation Goals</h1>
+                    <p class="text-gray-600">Set and track your water saving targets to reduce consumption</p>
+                </div>
+                <button id="set-goal-btn" class="mt-4 md:mt-0 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md flex items-center font-medium transition">
+                    <i class="fas fa-plus mr-2"></i>
+                    Set New Goal
+                </button>
+            </div>
+            
+            <!-- Current Goal Status -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="lg:w-1/2 mb-6 lg:mb-0 lg:pr-8">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-4">Current Goal</h2>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-bullseye text-blue-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-800">Reduce daily water usage</h3>
+                                <p class="text-gray-600">Target: <span class="font-semibold current-goal">80 gallons per day</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-600">Current: 85 gallons/day</span>
+                                <span class="text-gray-600">Target: 80 gallons/day</span>
+                            </div>
+                            <div class="water-progress h-4 bg-blue-100 rounded-full overflow-hidden">
+                                <div class="water-progress-bar h-full bg-blue-500 rounded-full" style="width: 94%;"></div>
+                            </div>
+                            <div class="flex justify-between mt-2">
+                                <span class="text-sm text-gray-600">94% Complete</span>
+                                <span class="text-sm text-gray-600">5 gallons to go</span>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="font-medium text-gray-700 mb-2">Goal Timeline</h4>
+                            <div class="flex items-center">
+                                <div class="h-1 bg-gray-200 flex-grow rounded-full relative">
+                                    <div class="absolute inset-y-0 left-0 bg-blue-500 rounded-full" style="width: 70%"></div>
+                                    <div class="absolute -top-1 -translate-y-1/2 left-0 w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="absolute -top-1 -translate-y-1/2 left-[35%] w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="absolute -top-1 -translate-y-1/2 left-[70%] w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="absolute -top-1 -translate-y-1/2 right-0 w-3 h-3 bg-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between mt-1 text-xs text-gray-500">
+                                <span>Start<br>Aug 1</span>
+                                <span>Checkpoint 1<br>Aug 15</span>
+                                <span>Checkpoint 2<br>Today</span>
+                                <span>Target<br>Sep 30</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 lg:border-l lg:border-gray-200 lg:pl-8">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">Performance Insights</h3>
+                        <div class="space-y-4">
+                            <div class="flex">
+                                <div class="bg-green-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-chart-line text-green-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-700">Consistent Progress</h4>
+                                    <p class="text-sm text-gray-600">You've reduced your water usage by 15% over the last 30 days.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-shower text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-700">Biggest Improvement</h4>
+                                    <p class="text-sm text-gray-600">Your bathroom usage has decreased by 25% since installing low-flow fixtures.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-tshirt text-yellow-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-700">Opportunity Area</h4>
+                                    <p class="text-sm text-gray-600">Your laundry usage is still 10% above average. Consider full loads only.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="font-medium text-gray-700 mb-3">Goal Rewards</h4>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="text-gray-700 mb-3">By achieving your current goal, you'll:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span class="text-sm">Save approximately $32.50 on your monthly bill</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span class="text-sm">Conserve 3,000 gallons of water per month</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span class="text-sm">Earn the "Water Steward" badge for your profile</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Goal History -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-xl font-semibold text-blue-800 mb-6">Goal History</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Goal</th>
+                                <th class="py-3 px-4 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Target</th>
+                                <th class="py-3 px-4 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Timeline</th>
+                                <th class="py-3 px-4 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="py-3 px-4 bg-blue-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Water Saved</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="py-4 px-4 text-sm">Reduce shower time</td>
+                                <td class="py-4 px-4 text-sm">5 minutes or less</td>
+                                <td class="py-4 px-4 text-sm">Jul 1 - Jul 31</td>
+                                <td class="py-4 px-4">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                                        Completed
+                                    </span>
+                                </td>
+                                <td class="py-4 px-4 text-sm">1,200 gallons</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-4 text-sm">Fix leaky faucets</td>
+                                <td class="py-4 px-4 text-sm">All leaks repaired</td>
+                                <td class="py-4 px-4 text-sm">Jun 15 - Jun 30</td>
+                                <td class="py-4 px-4">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                                        Completed
+                                    </span>
+                                </td>
+                                <td class="py-4 px-4 text-sm">800 gallons</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-4 text-sm">Optimize garden watering</td>
+                                <td class="py-4 px-4 text-sm">Reduce by 20%</td>
+                                <td class="py-4 px-4 text-sm">May 1 - Jun 15</td>
+                                <td class="py-4 px-4">
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">
+                                        Partial (85%)
+                                    </span>
+                                </td>
+                                <td class="py-4 px-4 text-sm">650 gallons</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-4 text-sm">Full loads only (laundry)</td>
+                                <td class="py-4 px-4 text-sm">Max efficiency</td>
+                                <td class="py-4 px-4 text-sm">Apr 1 - Apr 30</td>
+                                <td class="py-4 px-4">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+                                        Completed
+                                    </span>
+                                </td>
+                                <td class="py-4 px-4 text-sm">400 gallons</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-right">
+                    <span class="text-sm text-gray-600">Total Water Saved: <span class="font-semibold">3,050 gallons</span></span>
+                </div>
+            </div>
+            
+            <!-- Suggested Goals -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-blue-800 mb-6">Suggested Goals</h2>
+                <p class="text-gray-600 mb-6">Based on your usage patterns, here are some goals that could help you save more water:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Suggested Goal 1 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-hand-holding-water text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Reduce Kitchen Usage</h4>
+                                <p class="text-sm text-gray-600 mb-3">Target: Decrease by 15%</p>
+                                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                    <span>Difficulty: Medium</span>
+                                    <span>Est. Savings: 500 gal/month</span>
+                                </div>
+                                <button class="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded transition w-full">
+                                    Add This Goal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Suggested Goal 2 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-tshirt text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Optimize Laundry</h4>
+                                <p class="text-sm text-gray-600 mb-3">Target: 3 full loads per week max</p>
+                                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                    <span>Difficulty: Easy</span>
+                                    <span>Est. Savings: 700 gal/month</span>
+                                </div>
+                                <button class="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded transition w-full">
+                                    Add This Goal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Suggested Goal 3 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-toilet text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Toilet Upgrade</h4>
+                                <p class="text-sm text-gray-600 mb-3">Target: Install low-flow toilet</p>
+                                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                    <span>Difficulty: Hard</span>
+                                    <span>Est. Savings: 900 gal/month</span>
+                                </div>
+                                <button class="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded transition w-full">
+                                    Add This Goal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Suggested Goal 4 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-faucet text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Adjust Garden Irrigation</h4>
+                                <p class="text-sm text-gray-600 mb-3">Target: Water early morning only</p>
+                                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                    <span>Difficulty: Easy</span>
+                                    <span>Est. Savings: 400 gal/month</span>
+                                </div>
+                                <button class="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded transition w-full">
+                                    Add This Goal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Suggested Goal 5 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-shower text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Install Low-Flow Fixtures</h4>
+                                <p class="text-sm text-gray-600 mb-3">Target: All shower and faucets</p>
+                                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                    <span>Difficulty: Medium</span>
+                                    <span>Est. Savings: 800 gal/month</span>
+                                </div>
+                                <button class="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded transition w-full">
+                                    Add This Goal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Suggested Goal 6 -->
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-glass-whiskey text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 mb-1">Set 70 Gallon Daily Limit</h4>
+                                <p class="text-sm text-gray-600 mb-3">Target: Reduce overall usage</p>
+                                <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                    <span>Difficulty: Hard</span>
+                                    <span>Est. Savings: 1,500 gal/month</span>
+                                </div>
+                                <button class="mt-2 text-sm bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded transition w-full">
+                                    Add This Goal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Set Goal Modal -->
+    <div id="set-goal-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-lg max-w-md w-full mx-4">
+            <div class="p-5 border-b border-gray-200">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-semibold text-blue-800">Set a New Goal</h3>
+                    <button id="close-goal-modal" class="text-gray-400 hover:text-gray-500">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-5">
+                <form id="goal-form" data-validate="true" data-form-type="goal-setting">
+                    <!-- Goal Type -->
+                    <div class="mb-4">
+                        <label for="goal-type" class="block text-gray-700 font-medium mb-2">Goal Type</label>
+                        <select id="goal-type" name="goal-type" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input">
+                            <option value="">Select goal type</option>
+                            <option value="daily">Daily Usage Limit</option>
+                            <option value="device">Device-Specific Goal</option>
+                            <option value="activity">Activity-Based Goal</option>
+                            <option value="custom">Custom Goal</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Goal Description -->
+                    <div class="mb-4">
+                        <label for="goal-description" class="block text-gray-700 font-medium mb-2">Description</label>
+                        <input type="text" id="goal-description" name="goal-description" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                               placeholder="e.g. Reduce daily water usage">
+                    </div>
+                    
+                    <!-- Goal Value -->
+                    <div class="mb-4">
+                        <label for="goal-value" class="block text-gray-700 font-medium mb-2">Target Value</label>
+                        <div class="flex">
+                            <input type="number" id="goal-value" name="goal-value" required min="1" max="500"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input"
+                                   placeholder="e.g. 80">
+                            <div class="bg-gray-100 px-4 py-2 border border-l-0 border-gray-300 rounded-r-md flex items-center">
+                                <span class="text-gray-600">gallons/day</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium mb-2">Timeline</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="start-date" class="block text-sm text-gray-600 mb-1">Start Date</label>
+                                <input type="date" id="start-date" name="start-date" required
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input">
+                            </div>
+                            <div>
+                                <label for="end-date" class="block text-sm text-gray-600 mb-1">End Date</label>
+                                <input type="date" id="end-date" name="end-date" required
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent water-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Difficulty Level -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-medium mb-2">Difficulty Level</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="difficulty-option border border-gray-200 hover:border-blue-500 rounded-lg p-2 cursor-pointer transition-all text-center">
+                                <input type="radio" id="difficulty-easy" name="difficulty" value="easy" class="hidden" checked>
+                                <label for="difficulty-easy" class="cursor-pointer w-full block">
+                                    <i class="fas fa-smile text-green-500 text-xl mb-1"></i>
+                                    <span class="text-sm font-medium">Easy</span>
+                                </label>
+                            </div>
+                            <div class="difficulty-option border border-gray-200 hover:border-blue-500 rounded-lg p-2 cursor-pointer transition-all text-center">
+                                <input type="radio" id="difficulty-medium" name="difficulty" value="medium" class="hidden">
+                                <label for="difficulty-medium" class="cursor-pointer w-full block">
+                                    <i class="fas fa-meh text-yellow-500 text-xl mb-1"></i>
+                                    <span class="text-sm font-medium">Medium</span>
+                                </label>
+                            </div>
+                            <div class="difficulty-option border border-gray-200 hover:border-blue-500 rounded-lg p-2 cursor-pointer transition-all text-center">
+                                <input type="radio" id="difficulty-hard" name="difficulty" value="hard" class="hidden">
+                                <label for="difficulty-hard" class="cursor-pointer w-full block">
+                                    <i class="fas fa-grimace text-red-500 text-xl mb-1"></i>
+                                    <span class="text-sm font-medium">Hard</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="flex justify-end">
+                        <button type="button" id="cancel-goal" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md font-medium mr-2 transition">
+                            Cancel
+                        </button>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium transition">
+                            Set Goal
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">AquaSave</h3>
+                    <p class="text-blue-200">Smart water conservation for a sustainable future.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-blue-200 hover:text-white">Home</a></li>
+                        <li><a href="dashboard.html" class="text-blue-200 hover:text-white">Dashboard</a></li>
+                        <li><a href="devices.html" class="text-blue-200 hover:text-white">Devices</a></li>
+                        <li><a href="goals.html" class="text-blue-200 hover:text-white">Goals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="tips.html" class="text-blue-200 hover:text-white">Water Saving Tips</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Support</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-blue-200 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-6 text-center">
+                <p class="text-blue-200">&copy; 2025 AquaSave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/forms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Goal modal functionality
+            const setGoalBtn = document.getElementById('set-goal-btn');
+            const setGoalModal = document.getElementById('set-goal-modal');
+            const closeGoalModalBtn = document.getElementById('close-goal-modal');
+            const cancelGoalBtn = document.getElementById('cancel-goal');
+            
+            // Show modal
+            if (setGoalBtn && setGoalModal) {
+                setGoalBtn.addEventListener('click', function() {
+                    setGoalModal.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                });
+            }
+            
+            // Hide modal
+            const hideModal = function() {
+                if (setGoalModal) {
+                    setGoalModal.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            };
+            
+            if (closeGoalModalBtn) {
+                closeGoalModalBtn.addEventListener('click', hideModal);
+            }
+            
+            if (cancelGoalBtn) {
+                cancelGoalBtn.addEventListener('click', hideModal);
+            }
+            
+            // Close modal when clicking outside
+            if (setGoalModal) {
+                setGoalModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        hideModal();
+                    }
+                });
+            }
+            
+            // Difficulty selection
+            const difficultyOptions = document.querySelectorAll('.difficulty-option');
+            
+            difficultyOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    difficultyOptions.forEach(opt => {
+                        opt.classList.remove('border-blue-500');
+                        opt.classList.add('border-gray-200');
+                    });
+                    
+                    // Add active class to selected option
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('border-blue-500');
+                    
+                    // Check the radio input
+                    const radioInput = this.querySelector('input[type="radio"]');
+                    if (radioInput) {
+                        radioInput.checked = true;
+                    }
+                });
+            });
+            
+            // Set default dates for the form
+            const startDateInput = document.getElementById('start-date');
+            const endDateInput = document.getElementById('end-date');
+            
+            if (startDateInput && endDateInput) {
+                // Set start date to today
+                const today = new Date();
+                
+                // Format date as YYYY-MM-DD
+                const formatDate = function(date) {
+                    const year = date.getFullYear();
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const day = String(date.getDate()).padStart(2, '0');
+                    return `${year}-${month}-${day}`;
+                };
+                
+                startDateInput.value = formatDate(today);
+                
+                // Set end date to 30 days from now
+                const endDate = new Date();
+                endDate.setDate(today.getDate() + 30);
+                endDateInput.value = formatDate(endDate);
+            }
+            
+            // Handle suggested goal buttons
+            const addGoalButtons = document.querySelectorAll('.grid button');
+            
+            addGoalButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const goalTitle = this.parentNode.querySelector('h4').textContent;
+                    window.showNotification(`Added goal: ${goalTitle}`, 'success');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
